@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Fidelidade</title>
+    <link rel="icon" href="images/logocontent.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scritps/scritps.js"></script>
+</head>
+
+<body>
+    <!--Barra de navegação-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Calculadora de fidelidade<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Conteudo-->
+    <div class="container">
+        <!--Calendário de início da fidelidade-->
+        <div class="form-group">
+            <label for="dataInicio">Data de Início:</label>
+            <input type="date" class="form-control" id="dataInicio">
+        </div>
+
+        <!--Duração de 12 ou 24 meses para a fidelidade-->
+        <div class="form-group">
+            <label for="duracaoFidelidade">Duração da fidelidade:</label>
+            <select class="form-control" id="duracaoFidelidade">
+                <option value=""></option>
+                <option value="12">12 Meses</option>
+                <option value="24">24 Meses</option>
+            </select>
+        </div>
+
+        <!--Todos os pacotes vigentes-->
+        <div class="form-group">
+            <label for="tabelaSelecao" onclick="adicionarProdutos()">Escolha o pacote:</label>
+            <select class="form-control" id="tabelaSelecao">
+                <option value=""></option>
+                <option value="invt">Innovation 2.0</option>
+                <option value="simp">Simplifica & Simplifica 2.0</option>
+                <option value="supe">Super MPE</option>
+                <option value="rebr">Revolution Brasil</option>
+                <option value="rees">Revolution Especial</option>
+                <option value="acel">Acelera MPE & Acelera MPE 2.0</option>
+            </select>
+        </div>
+
+        <!--Botão que inicia a função que calcula o tempo da fidelidade-->
+        <button class="btn btn-outline-success" onclick="calcularTempoFidelidade()">Calcular tempo de
+            fidelidade</button>
+
+        <!--Retorno do calculo do tempo de fidelidade restante-->
+        <div class="mt-3">
+            <div id="resultado"></div>
+        </div>
+
+        <!--Seleção de quais produtos o cliente possui para o calculo do valor da fidelidade-->
+        <div id="qntProdutos" style="display: none;">
+            <hr>
+            <div class="grid-quantidade-produtos">
+                <div>
+                    <label for="tabelaBL">Quantidade de banda larga:</label>
+                    <select class="form-control" id="tabelaBL">
+                        <option value="1">1</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tabelaFIXA">Quantidade de linhas fixas:</label>
+                    <select class="form-control" id="tabelaFIXA">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tabelaMOVEL" id="qntTabelaMOVEL">Quantidade de linhas móveis:</label>
+                    <select class="form-control" id="tabelaMOVEL">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--Botão que inicia a função que calcula valor da fidelidade-->
+            <button id="botaocalculo" class="btn btn-outline-success" onclick="calcularTotalFidelidade()">Calcular valor
+                da fidelidade</button>
+        </div>
+
+        <!--Apresentação dos valores restantes-->
+        <div id="elementSoma" style="margin-top: 15px;">
+            <div id="resultadoDiv"></div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
