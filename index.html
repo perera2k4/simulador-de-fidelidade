@@ -219,6 +219,8 @@
                 // As tabelas abaixo indicam o pró-rata referente aos meses em caso de cancelamento
                 if (diasRestantes > 0) {
                     resultado += ` (${(anosRestantes * 12) + mesesRestantes + 1} meses)`;
+                    resultado += '.';
+                    document.getElementById('resultado').innerText = resultado;
                     // Calculo Fidelidade de 24 meses
                     if (duracaoFidelidadeGlobal == 24) {
                         // Tabela pró-rata Banda Larga com fidelidade de 24 meses
