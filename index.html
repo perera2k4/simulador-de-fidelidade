@@ -48,6 +48,8 @@
             grid-template-rows: auto auto;
             padding: 10px;
         }
+
+ 
     </style>
 </head>
 
@@ -71,6 +73,10 @@
         </div>
     </nav>
 
+
+    <!--Botão de impressão da página e logo da Algar-->
+    <button id="printButton" class="btn btn-outline-success" onclick="Salvar()" style="display: none; position: absolute; bottom: 20px; right: 20px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Salvar cálculo</button>
+    <img id="imageContainer" src="/images/logo.png" style="display: none; position: absolute; top: 10px; left: 10px; padding: 10px; max-width: 150px;">
     <!--Conteudo-->
     <div class="container">
         <!--Calendário de início da fidelidade-->
@@ -158,6 +164,7 @@
         <!--Apresentação dos valores restantes-->
         <div id="elementSoma" style="margin-top: 15px;">
             <div id="resultadoDiv"></div>
+            
         </div>
     </div>
 
@@ -880,6 +887,10 @@
 
         // Calcula o valor da fidelidade restante, divido em 12 ou 24 meses
         function calcularTotalFidelidade() {
+
+            const botaoSalvar = document.getElementById('printButton');
+            botaoSalvar.style.display = 'block';
+
             // Valor da fidelidade de 12 meses
             if (duracaoFidelidadeGlobal == 24) {
                 // Obtem os valores com base nas informações selecionadas pelo usuário
@@ -890,7 +901,7 @@
                 // Realizando o cálculo multiplicando pelos valores correspondentes
                 const totalBL24 = quantidadeBL24 * valorMultiplicadoBL24;
                 const totalFIXA24 = quantidadeLinhasFIXA24 * valorMultiplicadoFX24;
-                
+
                 // Verificando se o resultado para Linha Móvel é NaN e atribuindo 0 nesse caso
                 const totalMOVEL24 = isNaN(quantidadeLinhasMOVEL24) ? 0 : quantidadeLinhasMOVEL24 * valorMultiplicadoMOVEL24;
 
@@ -920,7 +931,7 @@
                 // Realizando o cálculo multiplicando pelos valores correspondentes
                 const totalBL12 = quantidadeBL12 * valorMultiplicadoBL12;
                 const totalFIXA12 = quantidadeLinhasFIXA12 * valorMultiplicadoFX12;
-                
+
                 // Verificando se o resultado para Linha Móvel é NaN e atribuindo 0 nesse caso
                 const totalMOVEL12 = isNaN(quantidadeLinhasMOVEL12) ? 0 : quantidadeLinhasMOVEL12 * valorMultiplicadoMOVEL12;
 
@@ -939,6 +950,12 @@
                 // Adicionando o resultado à div no documento
                 document.getElementById('elementSoma').appendChild(resultadoDiv);
             }
+        }
+        
+        function Salvar() {
+            const aparecerLogo = document.getElementById('imageContainer');
+            aparecerLogo.style.display = 'block';
+            window.print();
         }
     </script>
 
