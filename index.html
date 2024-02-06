@@ -75,8 +75,9 @@
 
 
     <!--Botão de impressão da página e logo da Algar-->
-    <button id="printButton" class="btn btn-outline-success" onclick="Salvar()" style="display: none; position: absolute; bottom: 20px; right: 20px; padding: 10px; font-size: 16px; cursor: pointer;">Salvar cálculo</button>
-    <img id="imageContainer" src="images/logo.png" style="display: none; position: absolute; top: 10px; left: 10px; padding: 10px;max-width: 150px;">
+    <button id="printButton" class="btn btn-outline-success" onclick="Salvar()" style="display: none; position: absolute; bottom: 5px; right: 20px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Salvar cálculo</button>
+    <img id="imageContainer" src="/images/logo.png" style="display: none; position: absolute; top: 10px; left: 10px; padding: 10px;
+    max-width: 150px;">
     <!--Conteudo-->
     <div class="container">
         <!--Calendário de início da fidelidade-->
@@ -226,6 +227,7 @@
                 // As tabelas abaixo indicam o pró-rata referente aos meses em caso de cancelamento
                 if (diasRestantes > 0) {
                     resultado += ` (${(anosRestantes * 12) + mesesRestantes + 1} meses)`;
+                    resultado += '.';
                     document.getElementById('resultado').innerText = resultado;
                     // Calculo Fidelidade de 24 meses
                     if (duracaoFidelidadeGlobal == 24) {
